@@ -5,7 +5,7 @@ const emp = require("./router/employeerouter");
 
 const server = express();
 
-const port = process.env.PORT || 4500;
+const port = process.env.PORT || 3000;
 
 server.use(express.json());
 
