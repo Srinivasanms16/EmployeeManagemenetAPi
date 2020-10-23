@@ -11,6 +11,11 @@ const schema = new mongoose.Schema({
         type:String,
         required:true
     },
+    gender:{
+type:String,
+required:false,
+enum:["male","female"]
+    },
     email:{
         type:String,
         trim:true,
@@ -44,6 +49,10 @@ const schema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true
+    },
+    isActive:{
+        type:Boolean,
+        default:false
     }
 },{timestamps:true,toJSON:{virtuals:true},toObject:{virtuals:true}});
 
