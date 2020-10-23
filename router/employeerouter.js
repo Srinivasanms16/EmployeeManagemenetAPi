@@ -44,7 +44,7 @@ router.get("/:id",async (req,res,next)=>{
 router.patch("/:id",async (req,res,next)=>{
     try{
         
-    const emp = await empmodel.update({_id:req.params.id},req.body);
+    const emp = await empmodel.findOneAndUpdate({_id:req.params.id},req.body,{new: true});
     res.status(200).send(emp);
 }
 catch(err)
@@ -55,7 +55,7 @@ catch(err)
 
 router.delete("/:id",async (req,res,next)=>{
     try{
-    const result = await empmodel.deleteOne({_id:req.params.id})
+    const result = await empmodel.findByIdAndDelete({_id:req.params.id})
     res.status(200).send(result);
 }
 catch(err)

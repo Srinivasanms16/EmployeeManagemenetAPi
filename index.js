@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 require("./db/connect");
 const emp = require("./router/employeerouter");
 
@@ -10,6 +11,8 @@ const port = process.env.PORT || 3000;
 server.use(express.json());
 
 server.use(express.urlencoded({extended:false}));
+
+server.use(cors());
 
 server.get("/test",(req,res)=>{
     res.send("testing....")
